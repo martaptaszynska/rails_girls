@@ -13,7 +13,8 @@
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      Wasz tekst tu
+     <img src='http://railsgirls.com/images/railsgirls-sq.png' alt="photo"> </img>
+      <p> Ta aplikacja powstała w trakcie warsztatów RailsGirls Poznan 2014 </p>
     </div>
   </div>
 </div>
@@ -22,7 +23,7 @@
   <%= link_to "All photos", photos_path, class: 'btn btn-default' %>
   <%= link_to "Add a new photo", new_photo_path, class: 'btn btn-danger' %>
   
-  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">About this app</button>
   
 
   <%= yield %>
