@@ -12,5 +12,6 @@
 #
 
 class Photo < ActiveRecord::Base
+  default_scope {order('likes DESC')}
   
 end
