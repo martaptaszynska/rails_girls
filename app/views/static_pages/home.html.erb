@@ -1,0 +1,26 @@
+<h1>Rails Girls start</h1>
+<h2>Marta Marta</h2>
+<p>taki znacznik</p>
+<b>drugi taki znacznik</b>
+<ul>
+<li>numer 1</li>
+<li>numer 2</li>
+<li>numer 3</li>
+</ul>
+<ol>
+<li>numer 1</li>
+<li>numer 2</li>
+<li>numer 3</li>
+</ol>
+<a href='http://www.facebook.com' target='_blank'> to jest link</a>
+<%= Time.now %>
+
+<% @linki.each do |name, link| %>
+<br><a href='<%= link %>' target='_blank'> <%=name %></a>
+ 
+<% end %>
+
+<%= @from_controller %>
+
+
+
