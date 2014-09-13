@@ -35,5 +35,21 @@ class PhotosController < ApplicationController
   def photo_params
     params.require(:photo).permit(:title, :photo_url, :description, :date)
   end
+  
+  def like
+    @photo = Photo.find(params[:id])
+    cookie_id = params[:id].to_sym
+    if session[cookie_id]
+      session[cookie_id] = nil
+      @photo.likes = @photo.likes - 1
+      flash[:error] = "You don't like it!"
+    else
+    session[cookie_id] = true
+      @photo.likes = @photo.likes + 1
+      flash[:success]= 'You like it!'
+    end
+         @photo.save!
+      redirect_to photos_path
+  end
 
 end

@@ -16,9 +16,17 @@
         <div class="caption">
           <h3><%= photo.title %></h3>
           <p><%= photo.description %></p>
+          <p> Likes: <%= photo.likes%> </p>
           <%= link_to 'edit photo', edit_photo_path(photo), class: 'btn btn-info' %>
           <%= link_to 'delete', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: "Na pewno?"} %>
 
+          <% cookie_id = session[photo.id.to_s.to_sym] %>
+          <% if cookie_id %>
+          <%= link_to "I don't like it!", like_photo_path(photo), class: 'btn btn-danger' %>
+          <% else %>
+          <%= link_to "I like it!", like_photo_path(photo), class: 'btn btn-warning' %>
+          <% end %>
+          
         </div>
       </div>
     </div>
