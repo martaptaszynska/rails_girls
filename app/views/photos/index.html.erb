@@ -3,12 +3,30 @@
 <% if @photos.empty? %>
   <p> There are no photos! </p>
 <% else %>
-  <% @photos.each do |photo| %>
-<p>
-      <%= photo.title %>
-      <img src='<%=photo.photo_url %>' width=400 height=300></img>
-      <%= link_to 'edit_info', edit_photo_path(photo) %>
-<%= link_to 'delete', photo_path(photo), method: :delete, data: {confirm: "Na pewno?"} %>
-</p>
-  <%end%>
-<%end%>
+
+  <% @photos.each_with_index do |photo, index| %>
+
+  <% if index % 3 == 0 %>
+    <div class="row">  
+   <% end %>
+
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="<%= photo.photo_url %>" width='250' height=300 alt="photo" </img>
+        <div class="caption">
+          <h3><%= photo.title %></h3>
+          <p><%= photo.description %></p>
+          <%= link_to 'edit photo', edit_photo_path(photo), class: 'btn btn-info' %>
+          <%= link_to 'delete', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: "Na pewno?"} %>
+
+        </div>
+      </div>
+    </div>
+
+    <% if index % 3 == 2 %>
+      </div>
+    <% end %>
+
+  <% end %>
+<% end %>
+
